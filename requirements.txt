@@ -1,2 +1,10 @@
 flask==1.0.2
 Flask-MySQLdb==0.2.0
+numpy
+pandas
+scipy
+pillow
+opencv-python
+matplotlib
+scikit-learn
+tensorflow
