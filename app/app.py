@@ -84,19 +84,10 @@ def train_model():
 
     tf.random.set_seed(21)
     ts_model =  Sequential()
-    #Add LSTM
-    #128 units - positive integers dimensionality of the outputspace
-    # The 1 in the input shape represents the number of features (in this case, only one feature is used for each timestep).
-    #input_shape=(1,lookback) means that the input data to the LSTM layer should have a shape of (batch_size, 1, lookback), 
-    # where batch_size represents the number of samples in each batch of input data.
     ts_model.add(LSTM(64,return_sequences=True,input_shape=(x_train.shape[1],x_train.shape[2])))
-    #ts_model.add(Dropout(rate=0.2))
     ts_model.add(LSTM(64,return_sequences=True))
-    #ts_model.add(Dropout(rate=0.2))
     ts_model.add(LSTM(64,return_sequences=True))
-    #ts_model.add(Dropout(rate=0.2))
     ts_model.add(LSTM(64))
-    #ts_model.add(Dropout(rate=0.2))
     ts_model.add(Dense(1))
     ts_model.compile(loss="mean_squared_error",optimizer="adam")
     ts_model.summary()
