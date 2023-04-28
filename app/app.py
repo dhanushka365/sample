@@ -21,7 +21,7 @@ def train_model():
 
     #Load the sequence data from csv
     #I:\DM PROJECT\originaldataset\AEP_hourly.csv
-    df = pd.read_csv('I:\DM PROJECT\originaldataset\AEP_hourly.csv')
+    df = pd.read_csv('app/app/datasets/AEP_hourly.csv')
     requests = pd.DataFrame(data=df,columns=['AEP_MW'])
     #if any missing value fill it by previous value and convert all requests into integer type
     requests.ffill(inplace=True)
@@ -120,7 +120,7 @@ def train_model():
     predict_on_test = scaler.inverse_transform(predict_on_test)
 
     ###############################################################################################################
-    os.chdir(r'app\model_save')
+    os.chdir(r'app/app/model_save')
     os.getcwd()
     ts_model.save(os.path.join(os.getcwd(),"lstm_model.h5"))
     return "Model train sucessfully"

@@ -8,3 +8,4 @@ opencv-python
 matplotlib
 scikit-learn
 tensorflow
+seaborn
